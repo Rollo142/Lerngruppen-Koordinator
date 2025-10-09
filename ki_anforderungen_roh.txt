@@ -1,0 +1,41 @@
+# Projekt: Lerngruppen-Koordinator
+
+## Kurzbeschreibung:
+Ein Tool, das Schülern oder Studenten hilft, Lerngruppen zu organisieren. Benutzer können Lerngruppen für bestimmte Fächer erstellen, Termine für Treffen planen und den Status von Aufgaben verfolgen.
+
+# Verwendeter Prompt:
+
+„Erstelle eine Liste mit mindestens 10 funktionalen Anforderungen für ein Softwareprojekt namens Lerngruppen-Koordinator.
+Das Tool soll Schülern oder Studenten helfen, Lerngruppen zu organisieren, Termine für Treffen zu planen und Aufgaben innerhalb der Gruppen zu verwalten.“
+
+# Ungefilterte KI-Antwort:
+
+# Benutzerregistrierung und -authentifizierung:
+Benutzer müssen sich mit E-Mail und Passwort registrieren und anmelden können.
+
+# Profilverwaltung:
+Benutzer können ihr Profil mit Name, Studiengang, Fachsemester und bevorzugten Lernfächern anpassen.
+
+# Lerngruppen-Erstellung:
+Benutzer können neue Lerngruppen für bestimmte Fächer oder Themen anlegen.
+
+# Beitritt zu Lerngruppen:
+Benutzer können bestehenden Lerngruppen beitreten – entweder auf Einladung oder durch offene Gruppenanfragen.
+
+# Kalender- und Terminplanung:
+Gruppenmitglieder können gemeinsame Lerntermine planen, anzeigen und bearbeiten.
+
+# Aufgaben- und Themenverwaltung:
+Gruppen können Aufgaben anlegen, zuweisen und den Bearbeitungsstatus (z. B. „offen“, „in Arbeit“, „erledigt“) verfolgen.
+
+# Chat- oder Nachrichtenfunktion:
+Mitglieder einer Gruppe können miteinander kommunizieren, Fragen stellen oder Materialien teilen.
+
+# Benachrichtigungssystem:
+Benutzer erhalten automatische Erinnerungen zu anstehenden Terminen, Aufgaben oder neuen Gruppenaktivitäten.
+
+# Datei-Upload und -Freigabe:
+Gruppenmitglieder können Lernmaterialien (z. B. PDFs, Präsentationen) hochladen und miteinander teilen.
+
+# Such- und Filterfunktion:
+Benutzer können nach Fächern, Gruppen oder anderen Studierenden mit ähnlichen Interessen suchen.
