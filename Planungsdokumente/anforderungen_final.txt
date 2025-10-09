@@ -1,0 +1,24 @@
+# Eigene Analyse und Priorisierung (Aufgabe 2b)
+
+Diese Datei bezieht sich auf *ki_anforderungen_roh.txt* und dient damit als Basis für dieses Dokument.
+Im nachfolgenden werde ich auf meine eigenen Ziele für den Prototypen eingehen.
+
+# Eigene Anforderungen, Analyse und Priorisierung:
+
+- 1. "Profilverwaltung: Benutzer können ihr Profil mit Name, Studiengang, Fachsemester und bevorzugten Lernfächern anpassen."
+  - Die Profilverwaltung ist ein Teil des Kerns des Projekts, ohne Profile lassen sich keine Lerngruppen erstellen. (6-7 Stunden)
+
+- 2. "Lerngruppen-Erstellung: Benutzer können neue Lerngruppen für bestimmte Fächer oder Themen anlegen." 
+  - Die Lerngruppen-Erstellungs sind ein weiterer Teil des Kerns des Projekts, wenn die Profile da sind brauchen diese auch eine Lerngruppe. (6-7 Stunden)
+
+- 3. "Beitritt zu Lerngruppen: Benutzer können bestehenden Lerngruppen beitreten – entweder auf Einladung oder durch offene Gruppenanfragen."
+  - Der Beitritt in eine Lerngruppe ist essentiell, Profile sollen nicht in Fremde Gruppen beitreten, offene Gruppen sind für alle Profile erlaubt. (4-5 Stunden)
+
+- 4. "Datei-Upload und -Freigabe: Gruppenmitglieder können Lernmaterialien (z. B. PDFs, Präsentationen) hochladen und miteinander teilen."
+  - Auch der Dateien-Upload ist essentiell, Lernmateriallien sollen untereinander Teilbar sein. (6-7 Stunden)
+
+-5. "Such- und Filterfunktion: Benutzer können nach Fächern, Gruppen oder anderen Studierenden mit ähnlichen Interessen suchen."
+  - Die Profile sollen natürlich auch Lerngruppen, Fächer oder andere Profile suchen können um ein optimales Lernerlebnis zu haben. (4-5 Stunden)
+
+
+
