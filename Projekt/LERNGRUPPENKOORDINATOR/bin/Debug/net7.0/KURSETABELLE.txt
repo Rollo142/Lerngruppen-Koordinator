@@ -1,0 +1,5 @@
+Programmieren 1 || Prof. Dr. Meier || Montag || 10:00-12:00 || Raum 101
+Mathematik 2 || Dr. Müller || Dienstag || 12:00-14:00 || Raum 202
+Datenbanken || Prof. Schmidt || Mittwoch || 14:00-16:00 || Raum 303
+Betriebssysteme || Dr. Wagner;Donnerstag || 08:00-10:00 || Raum 404
+Künstliche Intelligenz || Prof. Klein || Freitag || 10:00-12:00 ||Raum 505

@@ -13,6 +13,7 @@ CREATE TABLE BENUTZER (
 	FACHSEMESTER INT
 );
 
+
 CREATE TABLE LERNGRUPPE ( 
 	ID INT PRIMARY KEY IDENTITY(1,1),
 	NAME VARCHAR(100) NOT NULL,
@@ -29,3 +30,21 @@ CREATE TABLE Terminkalender (
 	FOREIGN KEY (BENUTZERID) REFERENCES BENUTZER(ID),
 	FOREIGN KEY (LERNGRUPPENID) REFERENCES LERNGRUPPE(ID),
 	);
+
+INSERT INTO BENUTZER (NAME, ADRESSE, PLZ, STUDIENGANG, FACHSEMESTER)
+VALUES 
+('Anna Schmidt', 'Hauptstraﬂe 12', '66111', 'Informatik', 3),
+('Jonas Becker', 'Bergstraﬂe 5', '66115', 'Maschinenbau', 2),
+('Laura Klein', 'Marktplatz 8', '66119', 'Psychologie', 4);
+
+INSERT INTO LERNGRUPPE (NAME, FACH, ADRESSE, PLZ)
+VALUES 
+('Algo-Team', 'Algorithmen und Datenstrukturen', 'Uni Campus Geb‰ude E1', '66123'),
+('Maschbau-Gruppe', 'Technische Mechanik', 'HTW Saar Geb‰ude B', '66117'),
+('PsychoLab', 'Kognitive Psychologie', 'Uni Campus Geb‰ude C3', '66125');
+
+INSERT INTO Terminkalender (BenutzerID, LERNGRUPPENID, TERMIN)
+VALUES 
+(1, 1, '2025-11-02 10:00'),
+(2, 2, '2025-11-03 14:30'),
+(3, 3, '2025-11-04 09:00');

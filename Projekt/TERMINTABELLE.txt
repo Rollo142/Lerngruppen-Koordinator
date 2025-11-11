@@ -1,0 +1,6 @@
+# Benutzername;Datum;Uhrzeit;Kursname;Ort
+Max Mustermann;2025-11-14;10:00;Programmieren 1;Raum 204
+Lisa Müller;2025-11-14;12:00;Mathematik;Raum 101
+Ali Öztürk;2025-11-15;09:30;Datenbanken;Online
+Sarah Meier;2025-11-16;13:15;Projektmanagement;Raum 305
+Max Mustermann;2025-11-18;08:00;Künstliche Intelligenz;Online

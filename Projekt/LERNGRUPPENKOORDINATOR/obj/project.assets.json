@@ -178,11 +178,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonas.becker_4\\source\\repos\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
+      "projectUniqueName": "C:\\Users\\jonas.becker_4\\Desktop\\Lerngruppen-Koordinator\\Projekt\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
       "projectName": "LERNGRUPPENKOORDINATOR",
-      "projectPath": "C:\\Users\\jonas.becker_4\\source\\repos\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
+      "projectPath": "C:\\Users\\jonas.becker_4\\Desktop\\Lerngruppen-Koordinator\\Projekt\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
       "packagesPath": "C:\\Users\\jonas.becker_4\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonas.becker_4\\source\\repos\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR\\obj\\",
+      "outputPath": "C:\\Users\\jonas.becker_4\\Desktop\\Lerngruppen-Koordinator\\Projekt\\LERNGRUPPENKOORDINATOR\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
