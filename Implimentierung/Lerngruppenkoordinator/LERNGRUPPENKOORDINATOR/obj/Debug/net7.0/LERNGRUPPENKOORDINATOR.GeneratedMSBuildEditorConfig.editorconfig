@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LERNGRUPPENKOORDINATOR
-build_property.ProjectDir = C:\Users\jonas.becker_4\Desktop\Lerngruppen-Koordinator\Projekt\LERNGRUPPENKOORDINATOR\
+build_property.ProjectDir = /home/m0k0/Desktop/Rollo/Lerngruppen-Koordinator/Implimentierung/Lerngruppenkoordinator/LERNGRUPPENKOORDINATOR/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
