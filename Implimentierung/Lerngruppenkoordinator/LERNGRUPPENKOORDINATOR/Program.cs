@@ -42,7 +42,7 @@ namespace Lerngruppe
         {
             string willkommenBox =
             $@"╔══════════╗
-                ║ {name}     ║
+                ║ {name}                     ║
                 ╩══════════╝";
             return willkommenBox;
         }

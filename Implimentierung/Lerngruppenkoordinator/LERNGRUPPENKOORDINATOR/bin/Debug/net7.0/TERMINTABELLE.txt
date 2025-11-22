@@ -1,3 +1,1 @@
-# Benutzername;Datum;Uhrzeit;Kursname;Ort
-
 Max Mustermann || 2025-11-14 || 10:00 || Programmieren 1 || Raum 204
