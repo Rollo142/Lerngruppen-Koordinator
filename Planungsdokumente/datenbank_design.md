@@ -43,3 +43,4 @@ Die Beziehungun zwischen den 3 Tabellen lässt sich folgend erklären:
 ### ADRESSE = VARCHAR (Adressen sind aus Buchstaben)
 ### PLZ = INT ( PLZ sind Zahlen)
 ### Unterrichtsmaterial = VARBINARY (Material der Benutzer zum lernen)
+### DATUM UND UHRZEIT = DATETIME (Bester Datentyp für Zeitangabe)

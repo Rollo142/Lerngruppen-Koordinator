@@ -1,1 +1,7 @@
-Max Mustermann || 2025-11-14 || 10:00 || Programmieren 1 || Raum 204
+1 | Campus West | Informatik | 0x1A2B3C | Raum 615.2 | 2025-01-12 10:00
+2 | Campus Nord | Mathematik | 0x4F5E6D | Raum 302.1 | 2025-01-13 14:30
+3 | Bildungszentrum Mitte | Physik | 0x7A8B9C | 120.0 | 2025-01-15 08:15
+4 | Campus Süd | BWL | 0xAA11BB | Raum 210.3 | 2025-01-20 16:45
+5 | Seminarhaus Ost | Psychologie | 0xFF00CC | Raum 450.2 | 2025-01-22 12:00
+
+

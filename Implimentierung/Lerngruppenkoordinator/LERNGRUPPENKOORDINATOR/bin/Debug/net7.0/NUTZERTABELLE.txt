@@ -1,1 +1,1 @@
-Max Mustermann || 25 || max.mustermann@example.com || Informatik || 01234-56789
+1 | Max Mustermann | Hauptstraße 12 | D-45127 | Informatik | Fachsemester 3

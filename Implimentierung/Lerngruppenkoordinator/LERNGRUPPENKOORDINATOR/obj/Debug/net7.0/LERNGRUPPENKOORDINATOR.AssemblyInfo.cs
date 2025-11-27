@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LERNGRUPPENKOORDINATOR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18f772547c41702c58032b1b34d7959127b8406e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8aa2ceafa36036473f8cea12483522a1f40443b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("LERNGRUPPENKOORDINATOR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LERNGRUPPENKOORDINATOR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

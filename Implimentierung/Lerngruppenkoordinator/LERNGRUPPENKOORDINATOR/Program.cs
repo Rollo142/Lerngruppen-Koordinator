@@ -99,7 +99,7 @@ namespace Lerngruppe
                             string dummydatenKurse = "KURSETABELLE.txt";
                             if (File.Exists(dummydatenKurse))
                             {
-                                Console.WriteLine("=== ÜBER DICH ===");
+                                Console.WriteLine("=== Verfügbare Kurse ===");
                                 string[] zeilen = File.ReadAllLines(dummydatenKurse);
                                 foreach (string p in zeilen)
                                 {

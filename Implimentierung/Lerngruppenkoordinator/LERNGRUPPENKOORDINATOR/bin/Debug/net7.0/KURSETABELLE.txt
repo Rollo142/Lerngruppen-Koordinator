@@ -1,5 +1,7 @@
-Programmieren 1 || Prof. Dr. Meier || Montag || 10:00-12:00 || Raum 101
-Mathematik 2 || Dr. Müller || Dienstag || 12:00-14:00 || Raum 202
-Datenbanken || Prof. Schmidt || Mittwoch || 14:00-16:00 || Raum 303
-Betriebssysteme || Dr. Wagner;Donnerstag || 08:00-10:00 || Raum 404
-Künstliche Intelligenz || Prof. Klein || Freitag || 10:00-12:00 ||Raum 505
+1 | Informatik | Raum 615.2 | Campus West | 45127 | 0xAB12CD | 2025-02-03 14:00
+2 | Mathematik | Raum 302.1 | Campus Nord | 47051 | 0xCD34EF | 2025-02-05 10:30
+3 | Elektrotechnik | Raum 128.0 | Laborzentrum Süd | 01067 | 0xEEFF11 | 2025-02-08 09:15
+4 | Psychologie | Raum 210.3 | Seminarhaus Ost | 8001 | 0x112233 | 2025-02-12 16:45
+5 | BWL | Raum 450.2 | Campus Mitte | 6020 | 0x99AABB | 2025-02-15 11:00
+
+
