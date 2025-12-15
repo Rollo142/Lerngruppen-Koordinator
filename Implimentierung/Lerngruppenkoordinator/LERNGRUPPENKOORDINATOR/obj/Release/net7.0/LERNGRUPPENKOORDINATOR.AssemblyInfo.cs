@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("LERNGRUPPENKOORDINATOR")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd065cc8ed91c86f30f0600ebaaf5d10437b6f6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("LERNGRUPPENKOORDINATOR")]

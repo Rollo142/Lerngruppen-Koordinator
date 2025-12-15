@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Besitzer\\Desktop\\Lerngruppekoordinator\\Lerngruppen-Koordinator\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj": {}
+    "C:\\Users\\moritz.kolb\\Desktop\\Lerngruppen-Koordinator_von_Rollo\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Besitzer\\Desktop\\Lerngruppekoordinator\\Lerngruppen-Koordinator\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj": {
+    "C:\\Users\\moritz.kolb\\Desktop\\Lerngruppen-Koordinator_von_Rollo\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Besitzer\\Desktop\\Lerngruppekoordinator\\Lerngruppen-Koordinator\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
+        "projectUniqueName": "C:\\Users\\moritz.kolb\\Desktop\\Lerngruppen-Koordinator_von_Rollo\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
         "projectName": "LERNGRUPPENKOORDINATOR",
-        "projectPath": "C:\\Users\\Besitzer\\Desktop\\Lerngruppekoordinator\\Lerngruppen-Koordinator\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
-        "packagesPath": "C:\\Users\\Besitzer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Besitzer\\Desktop\\Lerngruppekoordinator\\Lerngruppen-Koordinator\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\obj\\",
+        "projectPath": "C:\\Users\\moritz.kolb\\Desktop\\Lerngruppen-Koordinator_von_Rollo\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\LERNGRUPPENKOORDINATOR.csproj",
+        "packagesPath": "C:\\Users\\moritz.kolb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\moritz.kolb\\Desktop\\Lerngruppen-Koordinator_von_Rollo\\Implimentierung\\Lerngruppenkoordinator\\LERNGRUPPENKOORDINATOR\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Besitzer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\moritz.kolb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net7.0": {
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     }

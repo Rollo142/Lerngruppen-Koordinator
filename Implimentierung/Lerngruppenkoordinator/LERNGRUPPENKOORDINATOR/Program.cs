@@ -118,7 +118,30 @@ namespace Lerngruppe
             {
                 public static void Init()
                 {
-                    Console.WriteLine("Verbindung wird aufgebaut...");
+                    
+                    animation();
+                }
+
+                public static void animation()
+                {
+                    string[] icons = new string[] {":)",";P","X_X","^_^"};
+                    Random dice = new Random();
+                    var random = dice.Next(icons.Length);
+                    var pick = icons[random];
+                    var loading = new string[20];
+                    
+                    for (int x = 0; x < loading.Length-1;x++)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Verbindung wird aufgebaut...");
+                        loading[x] = icons[random];
+                        Console.Write((double)x / (double)loading.Length * 100);
+                        Console.Write("% => ");
+                        Console.Write(String.Join(" ",loading));
+                        Thread.Sleep(300);
+
+                    }
+
                 }
             }
 
