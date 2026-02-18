@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LerngruppekoordinatorAufgabe2"
         mc:Ignorable="d"
-        Title="LerngruppenKoordinator" Height="600" Width="650" MinWidth="600" MinHeight="600">
+        Title="LerngruppenKoordinator" Height="600" Width="800" MinWidth="600" MinHeight="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -21,18 +21,26 @@
         <TextBlock Margin="10,10,0,0" 
                    VerticalAlignment="Top" 
                    HorizontalAlignment="Left">Name</TextBlock>
-        <TextBox x:Name="txtSuchName" 
+        <TextBlock x:Name="txtSuchName" 
                  Grid.ColumnSpan="2" 
-                 Margin="10,35,10,0" 
+                 Margin="10,35,500,0" 
                  Height="25" 
-                 VerticalAlignment="Top"/>
+                 VerticalAlignment="Top" 
+                 Text="{Binding Nutzer.Name}"/>
         <Button Grid.Column="0" 
                 Margin="10,70,0,0" 
                 Width="150" 
                 Height="25" 
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
-                Click="LerngruppeSuchen">Lerngruppe Suchen</Button>
+                Click="GruppeSuchen">Lerngruppe Suchen</Button>
+        <Button Grid.Column="0" 
+                Margin="200,70,0,0" 
+                Width="150" 
+                Height="25" 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Click="BenutzerAnmelden">Benutzer ändern</Button>
         <Button Grid.Column="1" 
                 Margin="0,70,10,0" 
                 Width="120" 
@@ -49,7 +57,7 @@
                   Grid.Row="1"
                   Grid.ColumnSpan="2" 
                   Margin="10,21,10,19"
-                  ItemsSource="{Binding}">
+                  ItemsSource="{Binding VerfuegbareGruppen}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
@@ -57,13 +65,14 @@
                     <GridViewColumn Header="Raum" Width="70" DisplayMemberBinding="{Binding Raum}"/>
                     <GridViewColumn Header="PLZ" Width="70" DisplayMemberBinding="{Binding Plz}"/>
                     <GridViewColumn Header="Adresse" Width="150" DisplayMemberBinding="{Binding Adresse}"/>
+                    <GridViewColumn Header="Datum/Uhrzeit" Width="130" DisplayMemberBinding="{Binding DatumUhrzeit, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}"/>
                     <GridViewColumn Header="Beitreten" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="✓" 
                             Width="60" 
                             Height="25"
-                            
+                            Click="Beigetreten"
                             Tag="{Binding}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -71,32 +80,27 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        <Button Grid.Row="2" 
+
+        <Button Grid.Row="3" 
                 Grid.Column="0"
-                Margin="10,10,10,0" 
+                Margin="10,100,10,0" 
                 Width="150" 
                 Height="30" 
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Click="GruppeErstellen">Gruppe Erstellen</Button>
-        <TextBox x:Name="txtGruppenDetails"
-                 Grid.Row="2"
-                 Grid.ColumnSpan="2" 
-                 Margin="10,50,10,10"
-                 TextWrapping="Wrap"
-                 IsReadOnly="True"
-                 VerticalScrollBarVisibility="Auto">Wähle eine Gruppe aus oder erstelle eine neue</TextBox>
-        <TextBlock Grid.Row="3" 
+        
+        <TextBlock Grid.Row="2" 
                    Grid.ColumnSpan="2" 
                    Margin="10,5,10,0" 
                    FontWeight="Bold"
                    VerticalAlignment="Top">Meine Lerngruppen:</TextBlock>
 
         <ListView x:Name="lvMeineGruppen"
-                  Grid.Row="3" 
-                  Grid.ColumnSpan="2" 
-                  Margin="10,30,10,10"
+                  Grid.Row="2" 
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="2"
+                  Margin="10,30,10,100"
                   ItemsSource="{Binding MeineGruppen}">
             <ListView.View>
                 <GridView>
@@ -105,7 +109,19 @@
                     <GridViewColumn Header="Raum" Width="70" DisplayMemberBinding="{Binding Raum}"/>
                     <GridViewColumn Header="PLZ" Width="70" DisplayMemberBinding="{Binding Plz}"/>
                     <GridViewColumn Header="Adresse" Width="150" DisplayMemberBinding="{Binding Adresse}"/>
-                </GridView>
+                    <GridViewColumn Header="Datum/Uhrzeit" Width="130" DisplayMemberBinding="{Binding DatumUhrzeit, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}"/>
+                    <GridViewColumn Header="Verlassen?" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="✓" 
+                    Width="60" 
+                    Height="25"
+                    Click="Verlassen"
+                    Tag="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                  </GridView>
             </ListView.View>
         </ListView>
     </Grid>

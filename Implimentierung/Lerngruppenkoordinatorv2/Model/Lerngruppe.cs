@@ -44,7 +44,12 @@ namespace LerngruppekoordinatorAufgabe2.Model
             get => _plz;
             set { _plz = value; OnPropertyChanged(nameof(Plz)); }
         }
-
+        public DateTime? DatumUhrzeit
+        {
+            get => _datumUhrzeit;
+            set { _datumUhrzeit = value; OnPropertyChanged(nameof(DatumUhrzeit)); }
+        }
+        private DateTime? _datumUhrzeit;
         //public byte[] Unterrichtsmaterial
         //{
         //    get => _unterrichtsmaterial;

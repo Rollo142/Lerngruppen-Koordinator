@@ -1,6 +1,7 @@
 ﻿using LerngruppekoordinatorAufgabe2.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,53 +20,191 @@ namespace LerngruppekoordinatorAufgabe2
     /// </summary>
     public partial class MainWindow : Window
     {
+        //---------------------------------- BINDING ENGINE
+        public class MainViewModel : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler? PropertyChanged;
+            protected void OnPropertyChanged(string name) =>
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+            private Benutzer _nutzer = new Benutzer();
+            public Benutzer Nutzer
+            {
+                get => _nutzer;
+                set { _nutzer = value; OnPropertyChanged(nameof(Nutzer)); }
+            }
+
+            public ObservableCollection<Lerngruppe> VerfuegbareGruppen { get; set; }
+            public ObservableCollection<Termine> MeineGruppen { get; set; }
+            public ObservableCollection<Benutzer> BenutzerGruppe { get; set; }
+            public MainViewModel()
+            {
+                VerfuegbareGruppen = new ObservableCollection<Lerngruppe>();
+                MeineGruppen = new ObservableCollection<Termine>();
+                BenutzerGruppe = new ObservableCollection<Benutzer>();
+                _nutzer = new Benutzer();
+            }
+        }
+
+        //----------------------------------
+        //----------------------------------Main
         public LerngruppenKoordinatorDBContext dBContext;
-        public ObservableCollection<Lerngruppe> VerfuegbareGruppen;
-        public ObservableCollection<Termine> MeineGruppen;
+        public MainViewModel Viewmodel;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            Viewmodel = new MainViewModel();
+            DataContext = Viewmodel;
             dBContext = new LerngruppenKoordinatorDBContext();
-            VerfuegbareGruppen = new ObservableCollection<Lerngruppe>();
-            MeineGruppen = new ObservableCollection<Termine>();
             LernGruppenLaden();
             MeineGruppenLaden();
-        }
-
-        private void MeineGruppenLaden()
-        {
-            var meinegruppe = dBContext.Termine.ToList();
-            foreach (var t in meinegruppe)
-            {
-                MeineGruppen.Add(t);
-            }
-            DataContext = meinegruppe;
-        }
-
-        private void GruppeErstellen(object sender, RoutedEventArgs e)
-        {
             
         }
+        //------------------------------------
 
-        private void LerngruppeSuchen(object sender, RoutedEventArgs e)
+        //---------------------------------------------------------------LOADING ENGINE
+        private void MeineGruppenLaden()
         {
 
-        }
-
-        private void Einstellungen(object sender, RoutedEventArgs e)
-        {
-
+            var meinegruppe = dBContext.Termine.Include(t => t.Lerngruppen).ToList();
+            foreach (var t in meinegruppe)
+            {
+                Viewmodel.MeineGruppen.Add(t);
+            }
         }
         private void LernGruppenLaden()
         {
             var gruppen = dBContext.Lerngruppe.ToList();
 
             foreach (var gruppe in gruppen)
-            { 
-            VerfuegbareGruppen.Add(gruppe);
+            {
+                Viewmodel.VerfuegbareGruppen.Add(gruppe);
             }
-            DataContext = gruppen;
         }
+        private void BenutzerLaden()
+        {
+            var benutzer = Viewmodel.Nutzer;
+
+        }
+        //---------------------------------------------------------------
+
+        //----------------------------------------------------------------BUTTON ENGINE
+        private void GruppeErstellen(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void BenutzerAnmelden(object sender, RoutedEventArgs e)
+        {
+            if (Viewmodel.Nutzer == null)
+                Viewmodel.Nutzer = new Benutzer { Name = "" };
+
+            // Kopie
+            var temp = new Benutzer
+            {
+                Id = Viewmodel.Nutzer.Id,
+                Name = Viewmodel.Nutzer.Name,
+                Adresse = Viewmodel.Nutzer.Adresse,
+                Plz = Viewmodel.Nutzer.Plz,
+                Studiengang = Viewmodel.Nutzer.Studiengang,
+                Fachsemester = Viewmodel.Nutzer.Fachsemester
+            };
+
+            var dialog = new BenutzerAendernWindow(temp);
+            if (dialog.ShowDialog() == true)
+            {
+                // Kopie Anfügen
+                Viewmodel.Nutzer = temp;
+
+                if (temp.Id == 0)
+                    dBContext.Benutzer.Add(temp);
+                else
+                {
+                    var existing = dBContext.Benutzer.Find(temp.Id);
+                    if (existing != null)
+                    {
+                        existing.Name = temp.Name;
+                        existing.Adresse = temp.Adresse;
+                        existing.Plz = temp.Plz;
+                        existing.Studiengang = temp.Studiengang;
+                        existing.Fachsemester = temp.Fachsemester;
+                    }
+                }
+                dBContext.SaveChanges();
+                MessageBox.Show($"Benutzer: {Viewmodel.Nutzer.Name} | ID: {Viewmodel.Nutzer.Id}");
+            }
+        }
+        private void Einstellungen(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void GruppeSuchen(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //----------------------------------------------------------------
+        //--------------------------------------------------------------------------Table Actions
+        private void Beigetreten(object sender, RoutedEventArgs e)
+        {
+            if (Viewmodel.Nutzer == null || Viewmodel.Nutzer.Id == 0)
+            {
+                MessageBox.Show("Bitte zuerst Benutzer anlegen oder auswählen!");
+                return;
+            }
+
+            var button = sender as Button;
+            var gruppe = button?.Tag as Lerngruppe;
+            
+            bool bereitsHinzugefuegt = Viewmodel.MeineGruppen
+            .Any(t => t.LerngruppenId == gruppe.Id);
+
+            if (bereitsHinzugefuegt)
+            {
+                MessageBox.Show("Du bist dieser Gruppe bereits beigetreten!");
+                return;
+            }
+            var neuerTermin = new Termine
+            {
+                LerngruppenId = gruppe.Id,
+                BenutzerId = Viewmodel.Nutzer.Id,
+                //Viewmodel.VerfuegbareGruppen.Select(t => Name == t.Name),
+                Fach = gruppe.Fach,
+                Adresse = gruppe.Adresse,
+                Raum = gruppe.Raum,
+                Lerngruppen = gruppe,
+                DatumUhrzeit = gruppe.DatumUhrzeit
+            };
+            dBContext.Lerngruppe.Attach(gruppe);
+            dBContext.Termine.Add(neuerTermin);
+            dBContext.SaveChanges();
+            System.Diagnostics.Debug.WriteLine($"Lerngruppen null? {neuerTermin.Lerngruppen == null}");
+            System.Diagnostics.Debug.WriteLine($"Name: {neuerTermin.Name ?? "LEER"}");
+            Viewmodel.MeineGruppen.Add(neuerTermin);
+        }
+        private void Verlassen(object sender, RoutedEventArgs e)
+        {
+            if (Viewmodel.Nutzer == null)
+            {
+                MessageBox.Show("Füge Nutzerdaten ein!");
+                return;
+            }
+
+            var button = sender as Button;
+            var termin = button?.Tag as Termine;
+
+            if (termin == null) return;
+
+            bool vorhanden = Viewmodel.MeineGruppen.Any(t => t.Id == termin.Id);
+
+            if (!vorhanden)
+            {
+                MessageBox.Show("Du bist dieser Gruppe nicht beigetreten!");
+                return;
+            }
+
+            dBContext.Termine.Remove(termin);
+            dBContext.SaveChanges();
+            Viewmodel.MeineGruppen.Remove(termin);
+        }
+        //---------------------------------------------------------------------------
     }
 }
