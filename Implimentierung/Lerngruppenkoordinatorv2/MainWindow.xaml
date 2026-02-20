@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LerngruppekoordinatorAufgabe2"
         mc:Ignorable="d"
-        Title="LerngruppenKoordinator" Height="600" Width="800" MinWidth="600" MinHeight="600">
+        Title="LerngruppenKoordinator" Height="600" Width="1000" MinWidth="600" MinHeight="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -132,6 +132,7 @@
                             <DataTemplate>
                                 <Button Content="Upload" 
                                 Width="75" Height="25"
+                                Click="PdfUploadTermin"
                                 Tag="{Binding}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -141,6 +142,7 @@
                             <DataTemplate>
                                 <Button Content="PDF" 
                                 Width="75" Height="25"
+                                Click="PdfAnzeigenTermin"
                                 Tag="{Binding}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

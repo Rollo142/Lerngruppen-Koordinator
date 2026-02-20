@@ -62,7 +62,6 @@ namespace LerngruppekoordinatorAufgabe2
             
         } 
         //--------------------------------------------------------------------------
-
         //--------------------------------------------------------------------------LOADING ENGINE
         private void MeineGruppenLaden()
         {
@@ -111,6 +110,40 @@ namespace LerngruppekoordinatorAufgabe2
                 return;
             }
             PdfOeffnen(gruppe.Unterrichtsmaterial, gruppe.UnterrichtsmaterialName);
+        }
+        private void PdfUploadTermin(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var termin = button?.Tag as Termine;
+            if (termin == null) return;
+
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "PDF Dateien (*.pdf)|*.pdf",
+                Title = "PDF auswählen"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                termin.Unterrichtsmaterial = System.IO.File.ReadAllBytes(dialog.FileName);
+                termin.UnterrichtsmaterialName = System.IO.Path.GetFileName(dialog.FileName);
+                dBContext.Termine.Update(termin);
+                dBContext.SaveChanges();
+                MessageBox.Show($"PDF '{termin.UnterrichtsmaterialName}' erfolgreich hochgeladen!");
+            }
+        }
+        private void PdfAnzeigenTermin(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var termin = button?.Tag as Termine;
+            if (termin == null) return;
+
+            if (termin.Unterrichtsmaterial == null)
+            {
+                MessageBox.Show("Kein PDF vorhanden!");
+                return;
+            }
+            PdfOeffnen(termin.Unterrichtsmaterial, termin.UnterrichtsmaterialName);
         }
         //--------------------------------------------------------------------------BUTTON ENGINE
         private void GruppeErstellen(object sender, RoutedEventArgs e)
