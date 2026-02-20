@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace LerngruppekoordinatorAufgabe2
 {
     /// <summary>
@@ -59,7 +60,7 @@ namespace LerngruppekoordinatorAufgabe2
             LernGruppenLaden();
             MeineGruppenLaden();
             
-        }
+        } 
         //--------------------------------------------------------------------------
 
         //--------------------------------------------------------------------------LOADING ENGINE
@@ -87,7 +88,30 @@ namespace LerngruppekoordinatorAufgabe2
 
         }
         //--------------------------------------------------------------------------
+        //--------------------------------------------------------------------------PDF ENGINE
+        private void PdfOeffnen(byte[] pdfBytes, string? dateiname)
+        {
+            var tempPfad = System.IO.Path.Combine(System.IO.Path.GetTempPath(), dateiname ?? "dokument.pdf");
+            System.IO.File.WriteAllBytes(tempPfad, pdfBytes);
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = tempPfad,
+                UseShellExecute = true
+            });
+        }
+        private void PdfAnzeigenLerngruppe(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var gruppe = button?.Tag as Lerngruppe;
+            if (gruppe == null) return;
 
+            if (gruppe.Unterrichtsmaterial == null)
+            {
+                MessageBox.Show("Kein PDF vorhanden!");
+                return;
+            }
+            PdfOeffnen(gruppe.Unterrichtsmaterial, gruppe.UnterrichtsmaterialName);
+        }
         //--------------------------------------------------------------------------BUTTON ENGINE
         private void GruppeErstellen(object sender, RoutedEventArgs e)
         {

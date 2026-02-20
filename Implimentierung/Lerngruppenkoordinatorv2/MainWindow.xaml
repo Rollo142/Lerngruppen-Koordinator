@@ -77,6 +77,16 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn Header="PDF" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Download" 
+                                Click="PdfAnzeigenLerngruppe"
+                                Width="75" Height="25"
+                                Tag="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -113,15 +123,29 @@
                     <GridViewColumn Header="Verlassen?" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="✓" 
-                    Width="60" 
-                    Height="25"
-                    Click="Verlassen"
-                    Tag="{Binding}"/>
+                                <Button Content="✓" Width="60" Height="25" Click="Verlassen" Tag="{Binding}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                  </GridView>
+                    <GridViewColumn Header="PDF Upload" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Upload" 
+                                Width="75" Height="25"
+                                Tag="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="PDF Anzeigen" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="PDF" 
+                                Width="75" Height="25"
+                                Tag="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
             </ListView.View>
         </ListView>
     </Grid>
