@@ -17,22 +17,16 @@
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
         <TextBlock Grid.Row="0" VerticalAlignment="Center">Name:</TextBlock>
         <TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
-
         <TextBlock Grid.Row="1" VerticalAlignment="Center">Adresse:</TextBlock>
         <TextBox x:Name="txtAdresse" Grid.Row="1" Grid.Column="1" Margin="0,5,0,5"/>
-
         <TextBlock Grid.Row="2" VerticalAlignment="Center">PLZ:</TextBlock>
         <TextBox x:Name="txtPlz" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5"/>
-
         <TextBlock Grid.Row="3" VerticalAlignment="Center">Studiengang:</TextBlock>
         <TextBox x:Name="txtStudiengang" Grid.Row="3" Grid.Column="1" Margin="0,5,0,5"/>
-
         <TextBlock Grid.Row="4" VerticalAlignment="Center">Fachsemester:</TextBlock>
         <TextBox x:Name="txtFachsemester" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5"/>
-
         <Button Grid.Row="6" Grid.Column="1" 
                 Width="100" Height="30"
                 HorizontalAlignment="Right"

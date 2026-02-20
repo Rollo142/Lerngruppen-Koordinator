@@ -20,7 +20,7 @@ namespace LerngruppekoordinatorAufgabe2
     /// </summary>
     public partial class MainWindow : Window
     {
-        //---------------------------------- BINDING ENGINE
+        //--------------------------------------------------------------------------BINDING ENGINE
         public class MainViewModel : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler? PropertyChanged;
@@ -46,8 +46,8 @@ namespace LerngruppekoordinatorAufgabe2
             }
         }
 
-        //----------------------------------
-        //----------------------------------Main
+        //--------------------------------------------------------------------------
+        //--------------------------------------------------------------------------Main
         public LerngruppenKoordinatorDBContext dBContext;
         public MainViewModel Viewmodel;
         public MainWindow()
@@ -60,9 +60,9 @@ namespace LerngruppekoordinatorAufgabe2
             MeineGruppenLaden();
             
         }
-        //------------------------------------
+        //--------------------------------------------------------------------------
 
-        //---------------------------------------------------------------LOADING ENGINE
+        //--------------------------------------------------------------------------LOADING ENGINE
         private void MeineGruppenLaden()
         {
 
@@ -86,12 +86,19 @@ namespace LerngruppekoordinatorAufgabe2
             var benutzer = Viewmodel.Nutzer;
 
         }
-        //---------------------------------------------------------------
+        //--------------------------------------------------------------------------
 
-        //----------------------------------------------------------------BUTTON ENGINE
+        //--------------------------------------------------------------------------BUTTON ENGINE
         private void GruppeErstellen(object sender, RoutedEventArgs e)
         {
-            
+            var dialog = new GruppeErstellenWindow();
+            if (dialog.ShowDialog() == true)
+            {
+                dBContext.Lerngruppe.Add(dialog.NeueLerngruppe);
+                dBContext.SaveChanges();
+                Viewmodel.VerfuegbareGruppen.Add(dialog.NeueLerngruppe);
+            }
+
         }
         private void BenutzerAnmelden(object sender, RoutedEventArgs e)
         {
@@ -135,14 +142,52 @@ namespace LerngruppekoordinatorAufgabe2
         }
         private void Einstellungen(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new EinstellungenWindow();
+            dialog.DatenZurueckgesetzt += Dialog_DatenZurueckgesetzt;
+            dialog.ShowDialog();
         }
         private void GruppeSuchen(object sender, RoutedEventArgs e)
         {
+            var dialog = new GruppeSuchenWindow(Viewmodel.VerfuegbareGruppen.ToList());
+            dialog.GruppeBeigetreten += SuchfeldGruppeBeigetreten;  
+            dialog.ShowDialog();
+        }
+        //----------------------------------------------------------------Pipeline von GruppesuchenWindow
+        private void SuchfeldGruppeBeigetreten(object? sender, Lerngruppe gruppe)
+        {
+            if (Viewmodel.Nutzer == null || Viewmodel.Nutzer.Id == 0)
+            {
+                MessageBox.Show("Bitte zuerst Benutzer anlegen oder auswählen!");
+                return;
+            }
 
+            bool bereitsHinzugefuegt = Viewmodel.MeineGruppen
+                .Any(t => t.LerngruppenId == gruppe.Id);
+
+            if (bereitsHinzugefuegt)
+            {
+                MessageBox.Show("Du bist dieser Gruppe bereits beigetreten!");
+                return;
+            }
+
+            var neuerTermin = new Termine
+            {
+                LerngruppenId = gruppe.Id,
+                BenutzerId = Viewmodel.Nutzer.Id,
+                Fach = gruppe.Fach,
+                Adresse = gruppe.Adresse,
+                Raum = gruppe.Raum,
+                Lerngruppen = gruppe
+            };
+
+            dBContext.Entry(gruppe).State = EntityState.Unchanged;
+            dBContext.Termine.Add(neuerTermin);
+            dBContext.SaveChanges();
+            Viewmodel.MeineGruppen.Add(neuerTermin);
         }
         //----------------------------------------------------------------
-        //--------------------------------------------------------------------------Table Actions
+        //--------------------------------------------------------------------------
+        //--------------------------------------------------------------------------TABLE ACTIONS
         private void Beigetreten(object sender, RoutedEventArgs e)
         {
             if (Viewmodel.Nutzer == null || Viewmodel.Nutzer.Id == 0)
@@ -166,7 +211,6 @@ namespace LerngruppekoordinatorAufgabe2
             {
                 LerngruppenId = gruppe.Id,
                 BenutzerId = Viewmodel.Nutzer.Id,
-                //Viewmodel.VerfuegbareGruppen.Select(t => Name == t.Name),
                 Fach = gruppe.Fach,
                 Adresse = gruppe.Adresse,
                 Raum = gruppe.Raum,
@@ -176,8 +220,6 @@ namespace LerngruppekoordinatorAufgabe2
             dBContext.Lerngruppe.Attach(gruppe);
             dBContext.Termine.Add(neuerTermin);
             dBContext.SaveChanges();
-            System.Diagnostics.Debug.WriteLine($"Lerngruppen null? {neuerTermin.Lerngruppen == null}");
-            System.Diagnostics.Debug.WriteLine($"Name: {neuerTermin.Name ?? "LEER"}");
             Viewmodel.MeineGruppen.Add(neuerTermin);
         }
         private void Verlassen(object sender, RoutedEventArgs e)
@@ -204,6 +246,16 @@ namespace LerngruppekoordinatorAufgabe2
             dBContext.Termine.Remove(termin);
             dBContext.SaveChanges();
             Viewmodel.MeineGruppen.Remove(termin);
+        }
+        //---------------------------------------------------------------------------
+        //---------------------------------------------------------------------------DEBUGGING
+        private void Dialog_DatenZurueckgesetzt(object? sender, EventArgs e)
+        {
+            Viewmodel.VerfuegbareGruppen.Clear();
+            Viewmodel.MeineGruppen.Clear();
+            dBContext = new LerngruppenKoordinatorDBContext();
+            LernGruppenLaden();
+            MeineGruppenLaden();
         }
         //---------------------------------------------------------------------------
     }

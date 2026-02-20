@@ -45,7 +45,7 @@ namespace LerngruppekoordinatorAufgabe2
             var ausgewaehlter = button?.Tag as Benutzer;
             if (ausgewaehlter == null) return;
 
-            // Felder mit den Daten des ausgewählten Benutzers befüllen
+            
             _benutzer.Id = ausgewaehlter.Id;
             txtName.Text = ausgewaehlter.Name;
             txtAdresse.Text = ausgewaehlter.Adresse;
