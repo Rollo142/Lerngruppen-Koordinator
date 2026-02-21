@@ -57,6 +57,7 @@ namespace LerngruppekoordinatorAufgabe2
             Viewmodel = new MainViewModel();
             DataContext = Viewmodel;
             dBContext = new LerngruppenKoordinatorDBContext();
+            DatenbankInitialisieren();
             LernGruppenLaden();
             MeineGruppenLaden();
             
@@ -65,13 +66,18 @@ namespace LerngruppekoordinatorAufgabe2
         //--------------------------------------------------------------------------LOADING ENGINE
         private void MeineGruppenLaden()
         {
+            Viewmodel.MeineGruppen.Clear();
 
-            var meinegruppe = dBContext.Termine.Include(t => t.Lerngruppen).ToList();
+            if (Viewmodel.Nutzer.Id == 0) return; // kein Nutzer angemeldet
+
+            var meinegruppe = dBContext.Termine
+                .Include(t => t.Lerngruppen)
+                .Where(t => t.BenutzerId == Viewmodel.Nutzer.Id) // NEU
+                .ToList();
+
             foreach (var t in meinegruppe)
-            {
                 Viewmodel.MeineGruppen.Add(t);
-            }
-        }
+        } 
         private void LernGruppenLaden()
         {
             var gruppen = dBContext.Lerngruppe.ToList();
@@ -81,10 +87,29 @@ namespace LerngruppekoordinatorAufgabe2
                 Viewmodel.VerfuegbareGruppen.Add(gruppe);
             }
         }
-        private void BenutzerLaden()
+        private void DatenbankInitialisieren()
         {
-            var benutzer = Viewmodel.Nutzer;
+            dBContext.Database.EnsureCreated();
 
+            if (!dBContext.Lerngruppe.Any())
+            {
+                dBContext.Lerngruppe.AddRange(
+                    new Lerngruppe { Name = "Algo-Team", Fach = "Algorithmen und Datenstrukturen", Adresse = "Uni Campus E1", Plz = "66123", Raum = 101, DatumUhrzeit = new DateTime(2026, 3, 1, 10, 0, 0) },
+                    new Lerngruppe { Name = "Maschbau-Gruppe", Fach = "Technische Mechanik", Adresse = "HTW Saar B", Plz = "66117", Raum = 202, DatumUhrzeit = new DateTime(2026, 3, 2, 14, 0, 0) },
+                    new Lerngruppe { Name = "PsychoLab", Fach = "Kognitive Psychologie", Adresse = "Uni Campus C3", Plz = "66125", Raum = 303, DatumUhrzeit = new DateTime(2026, 3, 3, 9, 0, 0) }
+                );
+                dBContext.SaveChanges();
+            }
+
+            if (!dBContext.Benutzer.Any())
+            {
+                dBContext.Benutzer.AddRange(
+                    new Benutzer { Name = "Anna Schmidt", Adresse = "Hauptstraße 12", Plz = "66111", Studiengang = "Informatik", Fachsemester = 3 },
+                    new Benutzer { Name = "Jonas Becker", Adresse = "Bergstraße 5", Plz = "66115", Studiengang = "Maschinenbau", Fachsemester = 2 },
+                    new Benutzer { Name = "Laura Klein", Adresse = "Marktplatz 8", Plz = "66119", Studiengang = "Psychologie", Fachsemester = 4 }
+                );
+                dBContext.SaveChanges();
+            }
         }
         //--------------------------------------------------------------------------
         //--------------------------------------------------------------------------PDF ENGINE
@@ -195,6 +220,7 @@ namespace LerngruppekoordinatorAufgabe2
                 }
                 dBContext.SaveChanges();
                 MessageBox.Show($"Benutzer: {Viewmodel.Nutzer.Name} | ID: {Viewmodel.Nutzer.Id}");
+                MeineGruppenLaden();
             }
         }
         private void Einstellungen(object sender, RoutedEventArgs e)
