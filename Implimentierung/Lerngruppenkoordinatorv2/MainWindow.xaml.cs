@@ -77,7 +77,7 @@ namespace LerngruppekoordinatorAufgabe2
 
             foreach (var t in meinegruppe)
                 Viewmodel.MeineGruppen.Add(t);
-        } 
+        } // Gruppen des Nutzers laden
         private void LernGruppenLaden()
         {
             var gruppen = dBContext.Lerngruppe.ToList();
@@ -87,7 +87,7 @@ namespace LerngruppekoordinatorAufgabe2
                 Viewmodel.VerfuegbareGruppen.Add(gruppe);
             }
         }
-        private void DatenbankInitialisieren()
+        private void DatenbankInitialisieren() // Initialisiert die Datenbank mit Beispieldaten
         {
             dBContext.Database.EnsureCreated();
 
@@ -122,7 +122,7 @@ namespace LerngruppekoordinatorAufgabe2
                 FileName = tempPfad,
                 UseShellExecute = true
             });
-        }
+        }//Öffnet die Ausgewählte PDF
         private void PdfAnzeigenLerngruppe(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -135,7 +135,7 @@ namespace LerngruppekoordinatorAufgabe2
                 return;
             }
             PdfOeffnen(gruppe.Unterrichtsmaterial, gruppe.UnterrichtsmaterialName);
-        }
+        }//Öffnet das Lernmaterial einer Anderen Gruppe
         private void PdfUploadTermin(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -156,7 +156,7 @@ namespace LerngruppekoordinatorAufgabe2
                 dBContext.SaveChanges();
                 MessageBox.Show($"PDF '{termin.UnterrichtsmaterialName}' erfolgreich hochgeladen!");
             }
-        }
+        } // Lädt eine PDF in die Datenbank hoch
         private void PdfAnzeigenTermin(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -169,7 +169,7 @@ namespace LerngruppekoordinatorAufgabe2
                 return;
             }
             PdfOeffnen(termin.Unterrichtsmaterial, termin.UnterrichtsmaterialName);
-        }
+        }// Zeigt eine PDF einer Lerngruppe an in dem der Nutzer drin ist
         //--------------------------------------------------------------------------BUTTON ENGINE
         private void GruppeErstellen(object sender, RoutedEventArgs e)
         {
@@ -181,7 +181,7 @@ namespace LerngruppekoordinatorAufgabe2
                 Viewmodel.VerfuegbareGruppen.Add(dialog.NeueLerngruppe);
             }
 
-        }
+        }// Erstellt eine Gruppe
         private void BenutzerAnmelden(object sender, RoutedEventArgs e)
         {
             if (Viewmodel.Nutzer == null)
@@ -222,19 +222,19 @@ namespace LerngruppekoordinatorAufgabe2
                 MessageBox.Show($"Benutzer: {Viewmodel.Nutzer.Name} | ID: {Viewmodel.Nutzer.Id}");
                 MeineGruppenLaden();
             }
-        }
+        }// Zeigt Nutzerdaten an die Ausgewählt werden können
         private void Einstellungen(object sender, RoutedEventArgs e)
         {
             var dialog = new EinstellungenWindow();
             dialog.DatenZurueckgesetzt += Dialog_DatenZurueckgesetzt;
             dialog.ShowDialog();
-        }
+        } // öffnet Einstellungen
         private void GruppeSuchen(object sender, RoutedEventArgs e)
         {
             var dialog = new GruppeSuchenWindow(Viewmodel.VerfuegbareGruppen.ToList());
             dialog.GruppeBeigetreten += SuchfeldGruppeBeigetreten;  
             dialog.ShowDialog();
-        }
+        } // Filtert Gruppen anhand von nutzereingaben
         //----------------------------------------------------------------Pipeline von GruppesuchenWindow
         private void SuchfeldGruppeBeigetreten(object? sender, Lerngruppe gruppe)
         {
