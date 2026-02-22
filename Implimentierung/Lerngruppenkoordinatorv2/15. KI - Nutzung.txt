@@ -1,0 +1,20 @@
+# KI-Nutzung Projektaufgaben 7-12
+
+## Verwendetes Tool
+Claude 
+
+## Aufgabe 7 – Implementierung
+- Fehleranalyse und Verbesserungen besprochen (MeineGruppenLaden Filter, automatisches Seeding)
+- Code-Qualität verbessert (doppelter Code, leere Methoden)
+
+## Aufgabe 8 – Release
+- Anleitung zur Erstellung einer Self-contained .exe
+
+## Aufgabe 10 – Code-Review
+- Kriterien für das Code-Review erarbeitet und formuliert
+
+## Aufgabe 11 – Issues
+- Formulierung der Issue-Titel und Beschreibungen
+
+## Aufgabe 12 – Testen
+- Erstellung der Testfälle und Testprotokolle
