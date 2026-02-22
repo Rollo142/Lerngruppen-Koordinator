@@ -39,7 +39,7 @@ Um eine Gruppe zu erstellen drückt man den "Gruppe Erstellen" Knopf unter den b
 
 Im Gruppen-Erstellen-Fenster kann man die Daten für die neue Lerngruppe eintragen und speichern
 
-![Screenshot Gruppe Erstellen](../../Dokumentation/GruppeErstellenMenu.JPG)
+![Screenshot Gruppe Erstellen](../../Dokumentation/GruppenErstellenMenu.JPG)
 ### 4. Gruppe suchen
 
 Um explizit Gruppen zu suchen kann man über "Lerngruppen Suchen" direkt ins Suchfenster:
