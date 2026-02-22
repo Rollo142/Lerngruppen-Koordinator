@@ -49,7 +49,7 @@ Um explizit Gruppen zu suchen kann man über "Lerngruppen Suchen" direkt ins Suc
 
 Um eine PDF von einer Lerngruppe runterzuladen kann auf den Downloadknopf in der jeweiligen Lerngruppe gedrückt werden:
 
-![Screenshot Meine Gruppen](../../Dokumentation/PDF-Anzeeigen.JPG)
+![Screenshot Meine Gruppen](../../Dokumentation/PDF-Anzeigen.JPG)
 
 ## Screencast
 [Programm-Demo](../../Dokumentation/screencast.mp4)
