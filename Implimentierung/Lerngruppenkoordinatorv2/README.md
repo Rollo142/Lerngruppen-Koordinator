@@ -15,7 +15,7 @@ Dort können Nutzer geladen (2) oder neu erstellt werden (1):
 ![Screenshot Optionen](../../Dokumentation/OptionenAnmelden.JPG)
 ### 2. Lerngruppe beitreten
 Zum Beitreten einer Lerngruppe benötigt es nur einen Klick auf den Haken in der Lerngruppe, der man beitreten möchte:
-![Screenshot Beitreten](../../Dokumentation/Beitretenknopf.JPG)
+![Screenshot Beitreten](../../Dokumentation/BeitretenKnopf.JPG)
 Die ausgewählte Lerngruppe wird unter "Meine Lerngruppen" gelistet:
 ![Screenshot Meine Gruppen](../../Dokumentation/MeineGruppen.JPG)
 Zum Austreten einer Lerngruppe kann der Haken bei "Verlassen" gedrückt werden.
@@ -25,7 +25,7 @@ Um eine Gruppe zu erstellen drückt man den "Gruppe Erstellen" Knopf unter den b
 Im Gruppen-Erstellen-Fenster kann man die Daten für die neue Lerngruppe eintragen und speichern.
 ### 4. Gruppe suchen
 Um explizit Gruppen zu suchen kann man über "Lerngruppen Suchen" direkt ins Suchfenster:
-![Screenshot Suchen](../../Dokumentation/LerngruppenSuchen.JPG)
+![Screenshot Suchen](../../Dokumentation/LerngruppeSuchen.JPG)
 
 ## Screencast
 [Programm-Demo](../../Dokumentation/screencast.mp4)
