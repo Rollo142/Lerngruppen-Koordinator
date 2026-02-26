@@ -12,8 +12,8 @@ jobs:
       with:
         dotnet-version: '10.0.x'
     - name: Restore dependencies
-      run: dotnet restore Implimentierung/Lerngruppenkoordinatorv2/LerngruppekoordinatorAufgabe2.slnx
+      run: dotnet restore Implimentierung/Lerngruppenkoordinatorv2/Tests/LerngruppenkoordinatorTest.csproj
     - name: Build
-      run: dotnet build Implimentierung/Lerngruppenkoordinatorv2/LerngruppekoordinatorAufgabe2.slnx --no-restore
+      run: dotnet build Implimentierung/Lerngruppenkoordinatorv2/Tests/LerngruppenkoordinatorTest.csproj --no-restore
     - name: Test
-      run: dotnet test Implimentierung/Lerngruppenkoordinatorv2/LerngruppekoordinatorAufgabe2.slnx --no-build --verbosity normal
+      run: dotnet test Implimentierung/Lerngruppenkoordinatorv2/Tests/LerngruppenkoordinatorTest.csproj --no-build --verbosity normal
