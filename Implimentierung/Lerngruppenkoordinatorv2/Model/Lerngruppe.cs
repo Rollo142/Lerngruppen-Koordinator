@@ -50,11 +50,19 @@ namespace LerngruppekoordinatorAufgabe2.Model
             set { _datumUhrzeit = value; OnPropertyChanged(nameof(DatumUhrzeit)); }
         }
         private DateTime? _datumUhrzeit;
-        //public byte[] Unterrichtsmaterial
-        //{
-        //    get => _unterrichtsmaterial;
-        //    set { _unterrichtsmaterial = value; OnPropertyChanged(nameof(Unterrichtsmaterial)); }
-        //}
+        public string? UnterrichtsmaterialName
+        {
+            get => _unterrichtsmaterialName;
+            set { _unterrichtsmaterialName = value; OnPropertyChanged(nameof(UnterrichtsmaterialName)); }
+        }
+        private string? _unterrichtsmaterialName;
+
+        public byte[]? Unterrichtsmaterial
+        {
+            get => _unterrichtsmaterial;
+            set { _unterrichtsmaterial = value; OnPropertyChanged(nameof(Unterrichtsmaterial)); }
+        }
+        private byte[]? _unterrichtsmaterial;
 
         public virtual ICollection<Termine> Termine { get; set; }
 

@@ -36,7 +36,19 @@ namespace LerngruppekoordinatorAufgabe2.Model
         }
         private string? _fach { get; set; }
 
-        //public byte[]? Unterrichtsmaterial { get; set; }
+        public string? UnterrichtsmaterialName
+        {
+            get => _unterrichtsmaterialName;
+            set { _unterrichtsmaterialName = value; OnPropertyChanged(nameof(UnterrichtsmaterialName)); }
+        }
+        private string? _unterrichtsmaterialName;
+
+        public byte[]? Unterrichtsmaterial
+        {
+            get => _unterrichtsmaterial;
+            set { _unterrichtsmaterial = value; OnPropertyChanged(nameof(Unterrichtsmaterial)); }
+        }
+        private byte[]? _unterrichtsmaterial;
         public decimal? Raum{
             get => _raum;
             set { _raum = value; OnPropertyChanged(nameof(Raum)); }
