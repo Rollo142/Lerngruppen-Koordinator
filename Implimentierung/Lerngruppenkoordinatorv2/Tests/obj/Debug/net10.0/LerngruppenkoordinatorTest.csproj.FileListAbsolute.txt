@@ -1,7 +1,0 @@
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.csproj.AssemblyReference.cache
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.GeneratedMSBuildEditorConfig.editorconfig
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.gentestingplatformentrypointinputcache.cache
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.genautoregisteredextensionsinputcache.cache
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.AssemblyInfoInputs.cache
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.AssemblyInfo.cs
-D:\Baba\LerngruppekoordinatorAufgabe2\LerngruppenkoordinatorTest\obj\Debug\net10.0\LerngruppenkoordinatorTest.csproj.CoreCompileInputs.cache
