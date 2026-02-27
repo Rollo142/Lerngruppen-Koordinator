@@ -52,4 +52,4 @@ Um eine PDF von einer Lerngruppe runterzuladen kann auf den Downloadknopf in der
 ![Screenshot Meine Gruppen](../../Dokumentation/PDF-Anzeige.JPG)
 
 ## Screencast
-[Programm-Demo](../../Dokumentation/screencast.mp4)
+[Programm-Demo](../../Dokumentation/2026-02-27 19-09-39.mp4)
