@@ -1,19 +1,27 @@
 name: Unit Tests
+
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   test:
     runs-on: windows-latest
+
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+
+    - uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '10.0.x'
-    - name: Restore dependencies
-      run: dotnet restore Implimentierung/Lerngruppenkoordinatorv2/Tests/LerngruppenkoordinatorTest.csproj
+        dotnet-version: '8.0.x'
+
+    - name: Restore
+      run: dotnet restore
+
     - name: Build
-      run: dotnet build Implimentierung/Lerngruppenkoordinatorv2/Tests/LerngruppenkoordinatorTest.csproj --no-restore
+      run: dotnet build --configuration Release --no-restore
+
     - name: Test
-      run: dotnet test Implimentierung/Lerngruppenkoordinatorv2/Tests/LerngruppenkoordinatorTest.csproj --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-build --verbosity normal
