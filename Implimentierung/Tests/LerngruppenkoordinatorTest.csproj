@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\LerngruppekoordinatorAufgabe2.csproj" />
+	  <ProjectReference Include="..\Lerngruppenkoordinatorv2\LerngruppekoordinatorAufgabe2.csproj" />
   </ItemGroup>
 
   <ItemGroup>
